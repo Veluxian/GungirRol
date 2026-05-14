@@ -1,0 +1,88 @@
+/* Contenedor principal */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a; 
+  color: #ffffff;
+  /* Usamos el Violeta para un resplandor sutil en la sombra */
+  box-shadow: 0 2px 15px rgba(119, 34, 204, 0.2); 
+  border-bottom: 1px solid #333;
+}
+
+/* Logo o Título */
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  /* Aplicamos el Ocre al logo */
+  color: #CC7722; 
+  letter-spacing: 1px;
+  transition: text-shadow 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  text-shadow: 0 0 8px rgba(204, 119, 34, 0.6);
+}
+
+/* Lista de enlaces */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Estilo de los links */
+.navbar-links a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover con el color Cian */
+.navbar-links a:hover {
+  color: #22CCCC;
+}
+
+/* Clase para el link activo usando el Violeta */
+.active {
+  color: #7722CC !important;
+  border-bottom: 2px solid #7722CC;
+  padding-bottom: 4px;
+}
+
+/* Botón especial de Apóyanos - Usamos el Ocre con efecto Cian al pasar el mouse */
+.btn-support {
+  background-color: #CC7722;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  color: white !important;
+  font-weight: bold;
+  border: 1px solid transparent;
+  transition: all 0.3s ease !important;
+}
+
+.btn-support:hover {
+  background-color: transparent;
+  border: 1px solid #22CCCC;
+  color: #22CCCC !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(34, 204, 204, 0.3);
+}
+
+/* Responsivo básico */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navbar-links {
+    gap: 1rem;
+  }
+}

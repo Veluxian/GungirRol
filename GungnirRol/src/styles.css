@@ -1,3 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+:root {
+  --color-ocre: #CC7722;
+  --color-violeta: #7722CC;
+  --color-cian: #22CCCC;
+  /* Un fondo que "pertenece" a la familia del violeta */
+  --bg-dark: #0D0514; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark); /* ¡Usamos nuestra variable! */
+  color: white;
+}
+/* Aseguramos que el HTML y el Body no limiten la altura */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* El selector de tu componente principal (normalmente app-root) */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% del alto de la ventana visual */
+}
