@@ -1,0 +1,95 @@
+.aventuras-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.aventuras-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.form-section {
+  background: rgba(13, 5, 20, 0.8);
+  border: 1px solid var(--color-violeta);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(119, 34, 204, 0.2);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+label {
+  color: var(--color-ocre);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+input, textarea {
+  background: #000;
+  border: 1px solid #444;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-cian);
+  box-shadow: 0 0 8px rgba(34, 204, 204, 0.3);
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 2rem;
+  background: var(--color-violeta);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background: var(--color-cian);
+  color: #000;
+  box-shadow: 0 0 20px var(--color-cian);
+  transform: translateY(-2px);
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .full-width { grid-column: span 1; }
+  .form-section { padding: 1.5rem; }
+}

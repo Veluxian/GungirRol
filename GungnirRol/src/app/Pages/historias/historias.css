@@ -1,0 +1,131 @@
+.historias-container {
+  padding: 2rem;
+  color: white;
+}
+
+.historias-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.accent {
+  color: var(--color-cian);
+  text-shadow: 0 0 10px var(--color-cian);
+}
+
+.historias-layout {
+  display: grid;
+  grid-template-columns: 250px 250px 1fr; /* Tres columnas */
+  gap: 1rem;
+  height: 70vh;
+}
+
+/* Nivel 1: Categorías */
+.menu-categorias ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-categorias li {
+  padding: 12px 20px;
+  background: rgba(119, 34, 204, 0.1);
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.menu-categorias li:hover, .menu-categorias li.active {
+  background: rgba(119, 34, 204, 0.3);
+  border-left-color: var(--color-violeta);
+  transform: translateX(5px);
+}
+
+/* Nivel 2: Lista de nombres */
+.lista-nombres {
+  background: rgba(13, 5, 20, 0.5);
+  border: 1px solid rgba(204, 119, 34, 0.2);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.nombres-scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.nombre-item {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nombre-item:hover, .nombre-item.selected {
+  color: var(--color-cian);
+  background: rgba(34, 204, 204, 0.05);
+}
+
+/* Nivel 3: La Carta de Detalle */
+.detalle-carta {
+  background: #1a1a1a;
+  border: 1px solid var(--color-ocre);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease;
+}
+
+.carta-container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  height: 100%;
+}
+
+.carta-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-right: 2px solid var(--color-ocre);
+}
+
+.carta-info {
+  padding: 2rem;
+}
+
+.info-titulo {
+  color: var(--color-ocre);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  background: var(--color-violeta);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.info-divider {
+  border: 0;
+  border-top: 1px solid #444;
+  margin: 1.5rem 0;
+}
+
+.info-descripcion {
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.info-extra {
+  margin-top: 2rem;
+  padding: 10px;
+  background: rgba(34, 204, 204, 0.1);
+  border-radius: 5px;
+  color: var(--color-cian);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

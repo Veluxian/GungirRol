@@ -1,0 +1,52 @@
+<div class="mundo-container">
+  
+  <!-- Título Principal -->
+  <header class="mundo-header">
+    <h1 class="title-main">Conoce <span class="accent">Fergalia</span>!</h1>
+    <p class="subtitle">Explora los rincones de un mundo forjado entre el misterio y la magia.</p>
+  </header>
+
+  <!-- Sección del Mapa -->
+  <section class="map-section">
+    <div class="map-placeholder">
+      <img src="assets/imagenes-mundo/mapa-placeholder.png" alt="Mapa de Fergalia" class="map-img">
+      <div class="map-overlay">
+        <p>El mapa interactivo se está forjando...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Exploración (Lista + Contenido Dinámico) -->
+  <section class="explorer-section">
+    <div class="explorer-grid">
+      
+      <!-- Lista de Ubicaciones -->
+      <aside class="location-list">
+        <h3>Regiones</h3>
+        <ul>
+          <li (click)="seleccionarRegion('bosque')">🌲 El Bosque de los Ecos</li>
+          <li (click)="seleccionarRegion('capital')">🏰 Ciudad de Anunak</li>
+          <li (click)="seleccionarRegion('montanas')">🏔️ Cumbres de Plata</li>
+          <li (click)="seleccionarRegion('costa')">🌊 Costa del Susurro</li>
+        </ul>
+      </aside>
+
+      <!-- Caja de Contenido Dinámico -->
+      <article class="content-box">
+        <div class="content-placeholder">
+          <h2 class="region-title">{{ regionSeleccionada.nombre }}</h2>
+          <hr class="divider">
+          <p class="region-description">
+            {{ regionSeleccionada.descripcion }}
+          </p>
+          <div class="region-stats" *ngIf="regionSeleccionada.clima">
+            <span><strong>Clima:</strong> {{ regionSeleccionada.clima }}</span>
+            <span><strong>Peligro:</strong> {{ regionSeleccionada.peligro }}</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</div>

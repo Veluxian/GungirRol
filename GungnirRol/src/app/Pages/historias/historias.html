@@ -1,0 +1,51 @@
+<div class="historias-container">
+  <header class="historias-header">
+    <h1 class="title-main">¡Las leyendas de un <span class="accent">mundo de fantasía</span>!</h1>
+  </header>
+
+  <div class="historias-layout">
+    <aside class="menu-categorias">
+      <ul>
+        <li (click)="cambiarCategoria('Lugares')" [class.active]="catActiva === 'Lugares'">📍 Lugares</li>
+        <li (click)="cambiarCategoria('Personajes')" [class.active]="catActiva === 'Personajes'">👤 Personajes</li>
+        <li (click)="cambiarCategoria('Hazañas')" [class.active]="catActiva === 'Hazañas'">⚔️ Hazañas</li>
+        <li (click)="cambiarCategoria('Cofradias')" [class.active]="catActiva === 'Cofradias'">🤝 Cofradías</li>
+        <li (click)="cambiarCategoria('Cultos')" [class.active]="catActiva === 'Cultos'">👁️ Cultos</li>
+        <li (click)="cambiarCategoria('Seres')" [class.active]="catActiva === 'Seres'">✨ Seres</li>
+        <li (click)="cambiarCategoria('Bestias')" [class.active]="catActiva === 'Bestias'">🐉 Bestias</li>
+        <li (click)="cambiarCategoria('Entidades')" [class.active]="catActiva === 'Entidades'">🌌 Entidades</li>
+      </ul>
+    </aside>
+
+    <aside class="lista-nombres">
+      <h3 class="cat-titulo">{{ catActiva }}</h3>
+      <div class="nombres-scroll">
+        <div class="nombre-item" 
+             *ngFor="let item of listaFiltrada" 
+             (click)="seleccionarElemento(item)"
+             [class.selected]="elementoSeleccionado?.nombre === item.nombre">
+          {{ item.nombre }}
+        </div>
+      </div>
+    </aside>
+
+    <main class="detalle-carta" *ngIf="elementoSeleccionado">
+      <div class="carta-container">
+        <div class="carta-imagen">
+          <img [src]="elementoSeleccionado.imagen" [alt]="elementoSeleccionado.nombre">
+        </div>
+        <div class="carta-info">
+          <h2 class="info-titulo">{{ elementoSeleccionado.nombre }}</h2>
+          <div class="info-stats">
+            <span class="badge">{{ elementoSeleccionado.subtitulo }}</span>
+          </div>
+          <hr class="info-divider">
+          <p class="info-descripcion">{{ elementoSeleccionado.descripcion }}</p>
+          <div class="info-extra" *ngIf="elementoSeleccionado.datosExtra">
+             <strong>Dato de interés:</strong> {{ elementoSeleccionado.datosExtra }}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

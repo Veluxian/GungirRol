@@ -55,4 +55,15 @@ export class Inicio implements OnInit, OnDestroy {
     }
     this.startAutoPlay(); // Reiniciamos el reloj
   }
+  // Nueva variable para el héroe seleccionado (null significa ninguno)
+  heroeSeleccionado: string | null = null;
+
+  // Función para alternar la visibilidad
+  toggleHeroe(nombre: string) {
+    if (this.heroeSeleccionado === nombre) {
+      this.heroeSeleccionado = null; // Si hace clic en el mismo, se cierra
+    } else {
+      this.heroeSeleccionado = nombre; // Abre el nuevo
+    }
+  }
 }

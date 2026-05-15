@@ -1,0 +1,65 @@
+<div class="inicio-wrapper">
+  <section class="carousel-section">
+    <!-- <h1 class="section-title"> Nuestros Aventureros</h1> -->
+
+    <div class="carousel-container">
+      <!-- Flecha Izquierda -->
+      <button class="nav-btn prev" (click)="manualNav('prev')">&#10094;</button>
+
+      <div class="carousel-track" [ngStyle]="{ 'transform': 'translateX(-' + (currentIndex * 100) + '%)' }">
+        <div class="slide"><img src="assets/imagenes-heroes/Joako.png" alt="Joako"></div>
+        <div class="slide"><img src="assets/imagenes-heroes/Benja.png" alt="Benja"></div>
+        <div class="slide"><img src="assets/imagenes-heroes/Guerrero.png" alt="Extra"></div>
+      </div>
+      
+      <!-- Flecha Derecha -->
+      <button class="nav-btn next" (click)="manualNav('next')">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="hero-month-section">
+    <h2 class="section-title">Héroe del Mes</h2>
+    
+    <div class="hero-text-container">
+      <p class="hero-description">
+        Este mes honramos a los campeones que forjaron su destino en las mesas de <span class="highlight">El Desafío</span>. 
+        Su valentía en las calles de Baalth no será olvidada.
+      </p>
+    </div>
+
+    <div class="hero-grid">
+      <!-- Héroe 1: Guerrero -->
+      <div class="hero-container">
+        <div class="hero-card" 
+            (click)="toggleHeroe('guerrero')" 
+            [class.active]="heroeSeleccionado === 'guerrero'">
+          <img src="assets/imagenes-heroes/Guerrero.png" alt="Guerrero" class="hero-img">
+          <div class="hero-name-badge">Ver Datos</div>
+        </div>
+      </div>
+
+      <!-- Héroe 2: Cazadora -->
+      <div class="hero-container">
+        <div class="hero-card" 
+            (click)="toggleHeroe('cazadora')" 
+            [class.active]="heroeSeleccionado === 'cazadora'">
+          <img src="assets/imagenes-heroes/cazadora.png" alt="Cazadora" class="hero-img">
+          <div class="hero-name-badge">Ver Datos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel de Información Desplegable -->
+    <div class="hero-details-panel" *ngIf="heroeSeleccionado" [class.show]="heroeSeleccionado">
+      <div *ngIf="heroeSeleccionado === 'guerrero'">
+        <h3 class="highlight">El Guerrero de Hierro</h3>
+        <p>Líder de la vanguardia en las calles de Baalth. Su escudo ha repelido más de cien ataques durante el último asedio.</p>
+      </div>
+      <div *ngIf="heroeSeleccionado === 'cazadora'">
+        <h3 class="highlight">La Cazadora Sombría</h3>
+        <p>Experta en rastreo y ataques a distancia. Sus flechas imbuídas en energía Anunak nunca fallan el blanco.</p>
+      </div>
+    </div>
+    
+  </section>
+</div>

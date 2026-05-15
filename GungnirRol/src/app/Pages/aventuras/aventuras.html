@@ -1,0 +1,52 @@
+<div class="aventuras-container">
+  <header class="aventuras-header">
+    <h1 class="title-main">¡Ingresa tu <span class="accent">Bitácora</span>!</h1>
+    <p class="subtitle">Registra las hazañas de tu grupo para la posteridad de Fergalia.</p>
+  </header>
+
+  <section class="form-section">
+    <form class="bitacora-form" (submit)="enviarBitacora($event)">
+      
+      <div class="form-grid">
+        <!-- Nombre de la Historia -->
+        <div class="form-group">
+          <label for="titulo">Nombre de la Historia</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Ej: El rescate de Baalth" required>
+        </div>
+
+        <!-- Lugar -->
+        <div class="form-group">
+          <label for="lugar">Lugar</label>
+          <input type="text" id="lugar" name="lugar" placeholder="Ej: Cumbres de Plata" required>
+        </div>
+
+        <!-- Fecha -->
+        <div class="form-group">
+          <label for="fecha">Fecha de la Partida</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+      </div>
+
+      <!-- Relato -->
+      <div class="form-group full-width">
+        <label for="relato">Tu Relato (Máx. 2500 caracteres / ~1000 palabras)</label>
+        <textarea 
+          id="relato" 
+          name="relato" 
+          rows="12" 
+          maxlength="2500" 
+          #relatoInput
+          placeholder="Escribe aquí lo sucedido en tu sesión..."
+          required></textarea>
+        
+        <div class="char-counter">
+          <span>Caracteres: {{ relatoInput.value.length }} / 2500</span>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Enviar a los Archivos de Anunak
+      </button>
+    </form>
+  </section>
+</div>
