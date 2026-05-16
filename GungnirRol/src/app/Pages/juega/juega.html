@@ -1,0 +1,59 @@
+<div class="juega-container">
+  
+  <header class="juega-header">
+    <h1 class="title-main">¡Revive aventuras y <span class="accent">encarna la historia</span>!</h1>
+    <p class="subtitle">Elige tu crónica, prepara tus dados y adéntrate en el destino de Fergalia.</p>
+  </header>
+
+  <div class="juega-layout">
+    
+    <aside class="campaign-selector">
+      <h3>Crónicas Disponibles</h3>
+      <ul>
+        <li (click)="seleccionarCampana('miedo')" [class.active]="campanaActivaId === 'miedo'">
+          🌆 Miedo Urbano
+        </li>
+        <li (click)="seleccionarCampana('fuente')" [class.active]="campanaActivaId === 'fuente'">
+          ☀️ La Fuente del Sol
+        </li>
+        <li (click)="seleccionarCampana('sotel')" [class.active]="campanaActivaId === 'sotel'">
+          🌋 SotelMoloch
+        </li>
+      </ul>
+    </aside>
+
+    <main class="campaign-detail-box">
+      <div class="detail-container">
+        
+        <h2 class="campaign-title">{{ campanaSeleccionada.titulo }}</h2>
+        <span class="campaign-badge">{{ campanaSeleccionada.tipo }}</span>
+        
+        <hr class="divider">
+        
+        <p class="campaign-summary">
+          {{ campanaSeleccionada.resumen }}
+        </p>
+
+        <div class="video-wrapper">
+          <div class="video-placeholder">
+            <span class="video-icon">🎬</span>
+            <p>[ Loop de Gameplay: assets/videos/{{ campanaActivaId }}-loop.mp4 ]</p>
+            </div>
+        </div>
+
+        <div class="campaign-actions">
+          <button class="btn-secondary">📜 Ver Lore Especial</button>
+          <button class="btn-secondary">🛡️ Fichas de Personajes</button>
+        </div>
+
+        <div class="play-action-zone">
+          <a class="btn-play-main">
+            ¡Juega {{ campanaSeleccionada.titulo }}!
+          </a>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</div>

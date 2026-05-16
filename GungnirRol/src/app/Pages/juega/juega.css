@@ -1,0 +1,244 @@
+.juega-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.juega-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title-main {
+  font-size: 3rem;
+  color: var(--text-main);
+}
+
+.accent {
+  color: var(--color-brand-gold);
+  text-shadow: 0 0 15px rgba(166, 121, 24, 0.4);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* --- GRID DE DISEÑO --- */
+.juega-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* --- COLUMNA IZQUIERDA: Selector de Campañas --- */
+.campaign-selector h3 {
+  color: var(--color-brand-gold);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.campaign-selector ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.campaign-selector li {
+  padding: 1.2rem;
+  background: rgba(74, 30, 111, 0.15); /* Púrpura traslúcido */
+  border: 1px solid rgba(74, 30, 111, 0.4);
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.campaign-selector li:hover, 
+.campaign-selector li.active {
+  background: var(--color-brand-purple); /* Fondo púrpura sólido de la torre */
+  color: var(--text-main);
+  border-color: var(--color-brand-gold); /* Borde dorado de la lanza */
+  box-shadow: 0 4px 12px rgba(74, 30, 111, 0.3);
+  transform: translateX(8px);
+}
+
+/* --- COLUMNA DERECHA: Caja de Detalle --- */
+.campaign-detail-box {
+  background: var(--background-surface);
+  border: 1px solid rgba(166, 121, 24, 0.3); /* Marco dorado sutil */
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: inset 0 0 30px rgba(74, 30, 111, 0.15), 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Animación para que el texto aparezca suave al cambiar de campaña */
+.detail-container {
+  animation: contentFadeUp 0.4s ease forwards;
+}
+
+@keyframes contentFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.campaign-title {
+  color: var(--color-brand-gold);
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.campaign-badge {
+  display: inline-block;
+  background: rgba(74, 30, 111, 0.4);
+  color: var(--text-muted);
+  border: 1px solid var(--color-brand-purple);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid rgba(166, 121, 24, 0.2);
+  margin: 1.5rem 0;
+}
+
+.campaign-summary {
+  color: var(--text-main);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* --- WORKSPACE DEL VIDEO LOOP --- */
+.video-wrapper {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 300px;
+  background: #050208; /* Fondo ultra oscuro */
+  border: 2px solid var(--color-brand-purple);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-muted);
+  font-family: 'Courier New', Courier, monospace; /* Vibra técnica de código */
+  font-size: 0.9rem;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.video-icon {
+  font-size: 2.5rem;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Estilo listo para cuando pongas la etiqueta <video> real */
+.gameplay-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* --- BOTONES SECUNDARIOS --- */
+.campaign-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-brand-purple);
+  color: var(--text-main);
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-brand-gold);
+  color: var(--color-brand-gold);
+  background: rgba(166, 121, 24, 0.05);
+}
+
+/* --- BOTÓN PRINCIPAL: ¡JUEGA! --- */
+.play-action-zone {
+  text-align: center;
+}
+
+.btn-play-main {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: var(--color-brand-gold); /* El oro toma el control total */
+  color: var(--background-dark);       /* Texto oscuro para contraste limpio */
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(166, 121, 24, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-play-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px var(--color-brand-gold); /* Brillo intenso de la lanza */
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .juega-layout {
+    grid-template-columns: 1fr; /* Una sola columna en celulares */
+  }
+
+  .campaign-selector li:hover {
+    transform: translateX(0); /* Desactivamos desplazamiento lateral en móvil */
+  }
+
+  .campaign-detail-box {
+    padding: 1.5rem;
+  }
+
+  .campaign-title {
+    font-size: 1.8rem;
+  }
+
+  .campaign-actions {
+    flex-direction: column; /* Botones secundarios uno sobre otro en móviles */
+  }
+}

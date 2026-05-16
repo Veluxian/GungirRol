@@ -7,4 +7,5 @@ export const routes: Routes = [
     { path: 'mundo', component: PG.Mundo},
     { path: 'historias', component: PG.Historias},
     { path: 'aventuras', component: PG.Aventuras},
+    { path: 'juega', component: PG.Juega},
 ];
