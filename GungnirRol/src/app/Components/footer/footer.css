@@ -1,32 +1,38 @@
+/* Contenedor principal del pie de página */
 .footer {
-  background-color: #1a1a1a;
-  color: #ecf0f1;
-  padding: 3rem 0 1rem 0;
-  /* Cambio a Violeta para la línea superior */
-  border-top: 3px solid #7722CC; 
+  background-color: var(--background-surface); /* Fondo de superficie místico */
+  color: var(--text-main);                    /* Texto en crema pergamino */
+  border-top: 3px solid var(--color-brand-purple); /* Línea superior con el púrpura de la torre */
   margin-top: 50px;
-  box-shadow: 0 -5px 15px rgba(119, 34, 204, 0.1);
+  box-shadow: 0 -5px 15px rgba(74, 30, 111, 0.25); /* Sombra invertida con el púrpura de la marca */
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 0 2rem;
 }
 
-.footer-section {
+.footer-section-left {
   flex: 1;
   min-width: 200px;
   margin-bottom: 2rem;
+  text-align: left;
+}
+.footer-section-right {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 2rem;
+  text-align: right;
 }
 
-.footer-section h3 {
-  /* Títulos en Ocre */
-  color: #CC7722;
+.footer-section-left h3, 
+.footer-section-right h3{
+  color: var(--color-brand-gold); /* Títulos de secciones en oro de la lanza */
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -44,18 +50,29 @@
 }
 
 .footer-list a {
-  color: #bdc3c7;
+  color: var(--text-muted);
   text-decoration: none;
   transition: all 0.3s ease;
+  display: inline-block; /* Necesario para que el transform funcione correctamente */
+}
+
+/* El enlace izquierdo se mueve a la derecha, el derecho se mueve a la izquierda */
+.footer-section-left .footer-list a:hover {
+  color: var(--color-brand-gold);
+  transform: translateX(5px);
+}
+
+.footer-section-right .footer-list a:hover {
+  color: var(--color-brand-gold);
+  transform: translateX(-5px); /* Se mueve sutilmente hacia el centro del footer */
 }
 
 .footer-list a:hover {
-  /* Hover en Cian */
-  color: #22CCCC;
-  padding-left: 5px; /* Pequeño efecto de desplazamiento */
+  color: var(--color-brand-gold); /* El enlace brilla en oro al pasar el mouse */
+  padding-left: 5px;             /* Mantiene el sutil efecto de desplazamiento */
 }
 
-/* Estilos de la sección central */
+/* Estilos de la sección central (Eslogan y Redes) */
 .central {
   text-align: center;
 }
@@ -65,9 +82,8 @@
   font-weight: bold;
   font-style: italic;
   margin-bottom: 5px;
-  /* El eslogan destaca en Cian para darle luz */
-  color: #22CCCC;
-  text-shadow: 0 0 10px rgba(34, 204, 204, 0.2);
+  color: var(--color-brand-gold); /* El eslogan ahora destaca con la gloria del oro */
+  text-shadow: 0 0 12px rgba(166, 121, 24, 0.4); /* Resplandor dorado de la lanza */
 }
 
 /* Contenedor para los enlaces sociales */
@@ -79,7 +95,7 @@
   margin-top: 15px;
 }
 
-/* Estilo base para ambos links */
+/* Estilo base para los links sociales */
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -88,35 +104,38 @@
   font-size: 1.1rem;
   font-weight: bold;
   transition: all 0.2s ease;
-  color: #ecf0f1; /* Color base claro */
+  color: var(--text-main); /* Crema base */
 }
 
 .social-link:hover {
   transform: translateY(-3px);
 }
 
-/* Colores específicos con tu paleta */
+/* Colores específicos adaptados a la nueva identidad */
 .insta {
-  color: #7722CC; /* Violeta para Instagram */
+  color: var(--color-brand-purple); /* Púrpura de la torre para Instagram */
 }
 
 .whatsapp {
-  color: #CC7722; /* Ocre para WhatsApp (o podrías usar Cian) */
+  color: var(--color-brand-gold);   /* Oro de la lanza para WhatsApp */
 }
 
 .social-link:hover.insta {
-  text-shadow: 0 0 8px rgba(119, 34, 204, 0.5);
+  text-shadow: 0 0 10px rgba(74, 30, 111, 0.6);
+  color: var(--color-parchment);
 }
 
 .social-link:hover.whatsapp {
-  text-shadow: 0 0 8px rgba(204, 119, 34, 0.5);
+  text-shadow: 0 0 10px rgba(166, 121, 24, 0.6);
+  color: var(--color-parchment);
 }
 
+/* Barra de créditos inferior */
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid rgba(74, 30, 111, 0.3); /* Separador sutil con el púrpura de la marca */
   font-size: 0.8rem;
-  color: #7f8c8d;
+  color: var(--text-muted); /* Texto discreto en lila grisáceo */
 }

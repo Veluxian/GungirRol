@@ -1,6 +1,6 @@
 .historias-container {
   padding: 2rem;
-  color: white;
+  color: var(--text-main); /* Cambiado white por el crema pergamino suave */
 }
 
 .historias-header {
@@ -9,18 +9,18 @@
 }
 
 .accent {
-  color: var(--color-cian);
-  text-shadow: 0 0 10px var(--color-cian);
+  color: var(--color-brand-gold); /* El oro toma el protagonismo en el título */
+  text-shadow: 0 0 15px rgba(166, 121, 24, 0.4);
 }
 
 .historias-layout {
   display: grid;
-  grid-template-columns: 250px 250px 1fr; /* Tres columnas */
+  grid-template-columns: 250px 250px 1fr; /* Mantiene la estructura de tres columnas */
   gap: 1rem;
   height: 70vh;
 }
 
-/* Nivel 1: Categorías */
+/* Nivel 1: Categorías (Menú Izquierdo) */
 .menu-categorias ul {
   list-style: none;
   padding: 0;
@@ -28,26 +28,37 @@
 
 .menu-categorias li {
   padding: 12px 20px;
-  background: rgba(119, 34, 204, 0.1);
+  background: rgba(74, 30, 111, 0.15); /* Tinte del nuevo púrpura imperial */
+  color: var(--text-muted);
   margin-bottom: 5px;
   cursor: pointer;
   border-left: 3px solid transparent;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
 .menu-categorias li:hover, .menu-categorias li.active {
-  background: rgba(119, 34, 204, 0.3);
-  border-left-color: var(--color-violeta);
+  background: rgba(74, 30, 111, 0.35); /* Púrpura más intenso al seleccionar */
+  border-left-color: var(--color-brand-purple); /* Borde con el púrpura de la torre */
+  color: var(--text-main);
   transform: translateX(5px);
 }
 
-/* Nivel 2: Lista de nombres */
+/* Nivel 2: Lista de nombres (Menú Central) */
 .lista-nombres {
-  background: rgba(13, 5, 20, 0.5);
-  border: 1px solid rgba(204, 119, 34, 0.2);
+  background: rgba(25, 17, 36, 0.5); /* Fondo translúcido basado en superficie */
+  border: 1px solid rgba(166, 121, 24, 0.2); /* Borde dorado sutil */
   padding: 1rem;
   display: flex;
   flex-direction: column;
+}
+
+.cat-titulo {
+  color: var(--color-brand-gold); /* El título de la categoría activa brilla en oro */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
 .nombres-scroll {
@@ -57,23 +68,25 @@
 
 .nombre-item {
   padding: 10px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid rgba(189, 168, 205, 0.15); /* Separador sutil lila */
   cursor: pointer;
-  transition: color 0.3s;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
 }
 
 .nombre-item:hover, .nombre-item.selected {
-  color: var(--color-cian);
-  background: rgba(34, 204, 204, 0.05);
+  color: var(--color-brand-gold); /* El nombre seleccionado se ilumina en oro */
+  background: rgba(166, 121, 24, 0.08); /* Fondo con un sutil destello dorado */
 }
 
-/* Nivel 3: La Carta de Detalle */
+/* Nivel 3: La Carta de Detalle (Panel Derecho) */
 .detalle-carta {
-  background: #1a1a1a;
-  border: 1px solid var(--color-ocre);
+  background: var(--background-surface); /* Fondo del ecosistema Gungnir */
+  border: 1px solid var(--color-brand-gold); /* Marco dorado como la lanza */
   border-radius: 10px;
   overflow: hidden;
   animation: fadeIn 0.5s ease;
+  box-shadow: 0 0 20px rgba(74, 30, 111, 0.2);
 }
 
 .carta-container {
@@ -86,46 +99,53 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-right: 2px solid var(--color-ocre);
+  border-right: 2px solid var(--color-brand-gold); /* Separador interno dorado */
 }
 
 .carta-info {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-titulo {
-  color: var(--color-ocre);
+  color: var(--color-brand-gold); /* Nombre del elemento en oro */
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
 .badge {
-  background: var(--color-violeta);
+  background: var(--color-brand-purple); /* Badge con el púrpura de la marca */
+  color: var(--color-parchment);
   padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .info-divider {
   border: 0;
-  border-top: 1px solid #444;
+  border-top: 1px solid rgba(166, 121, 24, 0.3); /* Línea divisoria dorada translúcida */
   margin: 1.5rem 0;
 }
 
 .info-descripcion {
   line-height: 1.8;
-  color: #ccc;
+  color: var(--text-main); /* Relatos ultra legibles en crema pergamino */
 }
 
 .info-extra {
-  margin-top: 2rem;
-  padding: 10px;
-  background: rgba(34, 204, 204, 0.1);
+  margin-top: auto; /* Empuja el dato extra al fondo de la carta */
+  padding: 12px;
+  background: rgba(166, 121, 24, 0.1); /* Caja de interés con tinte dorado */
+  border: 1px solid rgba(166, 121, 24, 0.2);
   border-radius: 5px;
-  color: var(--color-cian);
+  color: var(--color-brand-gold);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
 }

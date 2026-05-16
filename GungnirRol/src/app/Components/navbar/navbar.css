@@ -1,32 +1,54 @@
-/* Contenedor principal */
+/* Contenedor principal de la barra de navegación */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1a1a1a; 
-  color: #ffffff;
-  /* Usamos el Violeta para un resplandor sutil en la sombra */
-  box-shadow: 0 2px 15px rgba(119, 34, 204, 0.2); 
-  border-bottom: 1px solid #333;
+  background-color: var(--background-dark); /* Fondo oscuro profundo */
+  color: var(--text-main);                  /* Texto base en crema pergamino */
+  /* Resplandor sutil púrpura imperial en la sombra inferior */
+  box-shadow: 0 2px 15px rgba(74, 30, 111, 0.3); 
+  border-bottom: 1px solid rgba(74, 30, 111, 0.4); /* Línea divisoria púrpura mística */
 }
 
-/* Logo o Título */
+/* --- LOGO Y TÍTULO (INTEGRADO) --- */
+.navbar-logo {
+  display: flex;         /* Activa el modo horizontal para logo + texto */
+  align-items: center;   /* Centra verticalmente el logo y el texto entre sí */
+  gap: 12px;             /* Espacio de separación exacto */
+}
+
+/* Control del tamaño de la imagen del logo */
+.logo-marca-gc {
+  height: 45px;          /* Altura ideal para la barra de navegación */
+  width: auto;           /* Mantiene la proporción original */
+  object-fit: contain;   /* Evita deformaciones */
+  filter: drop-shadow(0 0 4px rgba(166, 121, 24, 0.2)); /* Leve aura dorada inicial */
+  transition: transform 0.3s ease;
+}
+
+/* Estilo del texto "Bienvenidos a Fergalia" al lado del logo */
 .navbar-logo a {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   text-decoration: none;
-  /* Aplicamos el Ocre al logo */
-  color: #CC7722; 
+  color: var(--color-parchment); /* Crema pergamino brillante */
   letter-spacing: 1px;
-  transition: text-shadow 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover unificado para el bloque del logo */
+.navbar-logo:hover .logo-marca-gc {
+  transform: scale(1.05); /* El logo crece un 5% sutilmente */
+  filter: drop-shadow(0 0 8px var(--color-brand-gold)); /* El aura se intensifica en oro */
 }
 
 .navbar-logo a:hover {
-  text-shadow: 0 0 8px rgba(204, 119, 34, 0.6);
+  color: var(--color-brand-gold); /* El texto cambia a oro de la lanza */
+  text-shadow: 0 0 10px rgba(166, 121, 24, 0.5);
 }
 
-/* Lista de enlaces */
+/* --- ENLACES DE NAVEGACIÓN --- */
 .navbar-links {
   display: flex;
   list-style: none;
@@ -36,53 +58,60 @@
   align-items: center;
 }
 
-/* Estilo de los links */
+/* Estilo base de los links de las pestañas */
 .navbar-links a {
   text-decoration: none;
-  color: #ecf0f1;
+  color: var(--text-muted); /* Lila grisáceo discreto en reposo */
   font-weight: 500;
   transition: all 0.3s ease;
-}
-
-/* Hover con el color Cian */
-.navbar-links a:hover {
-  color: #22CCCC;
-}
-
-/* Clase para el link activo usando el Violeta */
-.active {
-  color: #7722CC !important;
-  border-bottom: 2px solid #7722CC;
   padding-bottom: 4px;
+  border-bottom: 2px solid transparent; /* Reserva el espacio para el borde activo */
 }
 
-/* Botón especial de Apóyanos - Usamos el Ocre con efecto Cian al pasar el mouse */
+/* Hover de las pestañas: Brillo en oro místico */
+.navbar-links a:hover {
+  color: var(--color-brand-gold);
+  text-shadow: 0 0 8px rgba(166, 121, 24, 0.4);
+}
+
+/* Clase de Angular para la pestaña activa (.active) */
+.active {
+  color: var(--color-brand-gold) !important; /* Forzamos el color oro */
+  border-bottom: 2px solid var(--color-brand-gold) !important; /* Subrayado dorado */
+  text-shadow: 0 0 12px rgba(166, 121, 24, 0.6);
+}
+
+/* --- BOTÓN ESPECIAL APÓYANOS --- */
 .btn-support {
-  background-color: #CC7722;
+  background-color: var(--color-brand-purple); /* Botón base Púrpura Imperial */
+  border: 1px solid var(--color-brand-gold);    /* Borde dorado inicial */
   padding: 0.5rem 1.2rem;
   border-radius: 5px;
-  color: white !important;
+  color: var(--color-parchment) !important;     /* Texto crema místico */
   font-weight: bold;
-  border: 1px solid transparent;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
+/* Hover del botón Apóyanos: Invierte colores al estilo gaming premium */
 .btn-support:hover {
-  background-color: transparent;
-  border: 1px solid #22CCCC;
-  color: #22CCCC !important;
+  background-color: var(--color-brand-gold);   /* Se llena de oro sólido */
+  color: var(--background-dark) !important;      /* El texto pasa a color oscuro profundo */
+  border-color: var(--color-brand-gold);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(34, 204, 204, 0.3);
+  box-shadow: 0 4px 15px rgba(166, 121, 24, 0.4); /* Resplandor dorado de la lanza Gungnir */
 }
 
-/* Responsivo básico */
+/* --- RESPONSIVO BÁSICO --- */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
+    padding: 1.5rem 1rem;
   }
   
   .navbar-links {
-    gap: 1rem;
+    gap: 1.2rem;
+    flex-wrap: wrap; /* Permite que colapsen ordenadamente en pantallas muy chicas */
+    justify-content: center;
   }
 }
