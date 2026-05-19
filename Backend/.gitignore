@@ -1,0 +1,59 @@
+# ==========================================
+# REGLAS PARA .NET (Backend)
+# ==========================================
+
+# Archivos de salida de compilación (Binarios)
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Carpetas ocultas de Visual Studio (Caché y configuraciones de usuario)
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Secretos de usuario de .NET Core (¡Nunca subir credenciales!)
+secrets.json
+[Aa]ppsettings.local.json
+
+# Archivos de diagnóstico y logs
+*.log
+.diagnostic/
+
+# Archivos de publicación/deploy locales
+*.Publish.xml
+*.pubxml
+*.pubxml.user
+
+# ==========================================
+# REGLAS PARA ANGULAR / NODE (Frontend)
+# ==========================================
+
+# Dependencias de Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Carpetas de compilación de Angular
+/dist/
+/.angular/
+/.tmp/
+/.sass-cache/
+
+# ==========================================
+# REGLAS GENERALES / IDEs
+# ==========================================
+
+# VS Code (si lo usas a veces)
+.vscode/
+!.vscode/extensions.json
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
