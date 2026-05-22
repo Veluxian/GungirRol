@@ -57,3 +57,10 @@ yarn-error.log*
 # Sistema Operativo
 .DS_Store
 Thumbs.db
+
+# ==========================================
+# VARIABLES DE ENTORNO (¡SECRETOS LOCALES!)
+# ==========================================
+.env
+.env.local
+.env.*.local
