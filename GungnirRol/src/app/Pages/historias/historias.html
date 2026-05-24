@@ -32,17 +32,17 @@
     <main class="detalle-carta" *ngIf="elementoSeleccionado">
       <div class="carta-container">
         <div class="carta-imagen">
-          <img [src]="elementoSeleccionado.imagen" [alt]="elementoSeleccionado.nombre">
         </div>
         <div class="carta-info">
           <h2 class="info-titulo">{{ elementoSeleccionado.nombre }}</h2>
           <div class="info-stats">
-            <span class="badge">{{ elementoSeleccionado.subtitulo }}</span>
+            <span class="badge">{{ elementoSeleccionado.categoria }}</span>
           </div>
           <hr class="info-divider">
           <p class="info-descripcion">{{ elementoSeleccionado.descripcion }}</p>
-          <div class="info-extra" *ngIf="elementoSeleccionado.datosExtra">
-             <strong>Dato de interés:</strong> {{ elementoSeleccionado.datosExtra }}
+          
+          <div class="info-extra" *ngIf="elementoSeleccionado.datoExtra">
+            <strong>Dato de interés:</strong> {{ elementoSeleccionado.datoExtra }}
           </div>
         </div>
       </div>

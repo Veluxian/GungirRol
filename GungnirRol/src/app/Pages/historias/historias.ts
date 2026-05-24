@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HistoriasService } from '../../services/historias';
+import { HistoriasType } from '../../models/HistoriaType';
 
 @Component({
   selector: 'app-historias',
@@ -8,24 +10,27 @@ import { CommonModule } from '@angular/common';
   templateUrl: './historias.html',
   styleUrl: './historias.css'
 })
-export class Historias {
+export class Historias implements OnInit{
+  listaHistorias: HistoriasType[] = [];
+
+  constructor(private historiasService: HistoriasService){}
+  ngOnInit(): void{
+    this.historiasService.obtenerHistorias().subscribe({
+      next: (data) =>{
+        this.listaHistorias = data;
+      },
+      error: (err) => console.error(err)
+    });
+  }
+
   catActiva: string = 'Lugares';
-  elementoSeleccionado: any = null;
+  elementoSeleccionado: HistoriasType | null = null;
+  
 
-  // Base de datos de ejemplo
-  dbHistorias: any = {
-    'Lugares': [
-      { nombre: 'Valle de Baalth', subtitulo: 'Región Central', imagen: 'assets/historias/baalth.png', descripcion: 'Un valle azotado por la guerra pero lleno de gloria.', datosExtra: 'Población: 2000 almas.' },
-      { nombre: 'Cataratas de Éter', subtitulo: 'Anomalía Mística', imagen: 'assets/historias/cataratas.png', descripcion: 'Aguas que fluyen hacia arriba.', datosExtra: 'Altamente inestable.' }
-    ],
-    'Bestias': [
-      { nombre: 'Vermis de Sangre', subtitulo: 'Depredador Alfa', imagen: 'assets/historias/vermis.png', descripcion: 'Habita en las grietas de Fergalia.', datosExtra: 'Débil al fuego.' }
-    ],
-    // ... añade los demás
-  };
-
-  get listaFiltrada() {
-    return this.dbHistorias[this.catActiva] || [];
+  get listaFiltrada(): HistoriasType[] {
+    return this.listaHistorias.filter(
+      item => item.categoria.toLowerCase() === this.catActiva.toLowerCase()
+    );
   }
 
   cambiarCategoria(cat: string) {
@@ -33,7 +38,7 @@ export class Historias {
     this.elementoSeleccionado = null; // Resetear detalle al cambiar categoría
   }
 
-  seleccionarElemento(item: any) {
+  seleccionarElemento(item: HistoriasType) {
     this.elementoSeleccionado = item;
   }
 }

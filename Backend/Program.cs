@@ -15,6 +15,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IHistoriaService, HistoriasService>();
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
     option.UseNpgsql(connectionString));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirAngular", policy =>
+    {
+        policy.WithOrigins("https://localhost:4200")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -28,6 +37,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("PermitirAngular");
 
 app.MapControllers();
 
