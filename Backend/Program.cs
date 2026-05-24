@@ -1,7 +1,10 @@
 using Backend.Interfaces;
 using Backend.Services;
+using Backend.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("EfPostgresConnection");
 
 // Add services to the container.
 
@@ -10,6 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IHistoriaService, HistoriasService>();
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+    option.UseNpgsql(connectionString));
 
 var app = builder.Build();
 
