@@ -15,9 +15,9 @@ namespace Backend.Controllers
             _historiaService = historiaService;
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var historias = _historiaService.GetAllStories();
+            var historias = await _historiaService.GetAllStories();
             return Ok(historias);
         }
     }

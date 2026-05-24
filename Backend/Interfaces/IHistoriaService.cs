@@ -4,6 +4,6 @@ namespace Backend.Interfaces
 {
     public interface IHistoriaService
     {
-        List<HistoriaDTO> GetAllStories();
+        Task<IEnumerable<HistoriaDTO>> GetAllStories();
     }
 }
