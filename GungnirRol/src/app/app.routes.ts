@@ -8,4 +8,5 @@ export const routes: Routes = [
     { path: 'historias', component: PG.Historias},
     { path: 'aventuras', component: PG.Aventuras},
     { path: 'juega', component: PG.Juega},
+    { path: 'admin', component: PG.Admin},
 ];

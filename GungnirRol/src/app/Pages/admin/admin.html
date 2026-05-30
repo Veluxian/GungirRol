@@ -1,0 +1,16 @@
+<div class="form-container">
+    <div class="form-header">
+        <h2>Ingreso</h2>
+    </div>
+    <form class="post-form">
+        <div class="form-group">
+            <label for="categoria">Tipo de entrada</label>
+            <select name="categoria" id="categoria" required>
+                <option value="" disabled selected>Selecciona el tipo</option>
+                <option *ngFor="let cat of categoriasDisponibles" [value]="cat">
+                    {{cat}}
+                </option>
+            </select>
+        </div>
+    </form>
+</div>
