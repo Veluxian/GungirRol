@@ -12,7 +12,7 @@ Y el valor extra de esto, es que lo que agreguen formará parte canonica de la h
 
 ---
 ## Tecnologías
-* **Frontend :** ![Angular](https://img.shields.io/badge/Angular-0F0F11?style=flat&logo=angular&logoColor=white) 
+* **Frontend :** ![Angular](https://img.shields.io/badge/Angular-DD1100?style=flat&logo=angular&logoColor=white) 
 * **Backend :** ![.NET](https://img.shields.io/badge/ASP.NETCore-512BD4?style=flat&logo=dotnet&logoColor=white)
-* **Base de datos :** PostgreSQL
+* **Base de datos :** ![.NET](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
 ---
