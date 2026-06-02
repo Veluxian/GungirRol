@@ -16,4 +16,3 @@ Y el valor extra de esto, es que lo que agreguen formará parte canonica de la h
 * **Backend :** ASP.NET Core
 * **Base de datos :** PostgreSQL
 ---
-
