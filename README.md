@@ -29,6 +29,10 @@ Para preservar la integridad del lore y la calidad de las contribuciones, el acc
 (Nota: Esta sección está sujeta a cambios conforme la comunidad y el sistema de juego evolucionen).
 
 ## Arquitectura
+* Diagrama
+Proximamente
+* Roadmap
+Proximamente
 
 ## Estado del proyecto
 En desarrollo
